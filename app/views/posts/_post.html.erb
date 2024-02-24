@@ -1,11 +1,17 @@
 <div id="<%= dom_id post %>" class="shadow rounded p-5">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
+  <p class="text-center">
+    <strong>
+      <%= post.id %>
+    </strong>
   </p>
-
   <p>
-    <strong>Body:</strong>
-    <%= post.body %>
+    <strong>
+      <%= post.title %>
+    </strong>
+  </p>
+  <p>
+    <small>
+      <%= post.body %>
+    </small>
   </p>
 </div>

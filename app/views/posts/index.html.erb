@@ -1,8 +1,10 @@
 <h1 class="mb-5">Posts</h1>
+<%== pagy_nav(@pagy) %>
 
-<% @posts.each do |post| %>
-  <%= render post %>
-  <p>  <%= link_to "Show this post", post, class: "btn btn-sm btn-outline-dark mt-3" %></p>
+<%= turbo_frame_tag :posts do %>
+  <%= render @posts %>
 <% end %>
+
+<% turbo_frame_tag :pagination, loading: :lazy, src: posts_path(format: :turbo_stream, page: @pagy.next) %>
 
 <%= link_to "New post", new_post_path, class: "btn btn-sm btn-outline-dark mt-3" %>

@@ -2,7 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
-    @posts = Post.all
+    #@pagy, @posts = pagy(Post.all, items: 10)
+    @pagy, @posts = pagy_countless(Post.all, items: 10)
+    # sleep 1
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   def show; end
